@@ -13,15 +13,20 @@
         <div class="col-md-9">
 
             <div class="well well-lg">
+
                 @include('partials.notification')
+                        
                 <!-- 文章 -->
                 <div class="panel panel-default">
+                    {{-- 編輯/刪除按鈕 --}}
                     <div class="text-right" style="padding-right: 15px;">
-                        <form action="" method="POST">
+                        {{--<form action="" method="POST">--}}
+                        {!! Form::open(['route' => ['posts.delete', $post->id], 'method' => 'DELETE']) !!}
                             <a class="btn btn-material-blue btn-lg" href="editpost.html"><i class="fa fa-edit"></i> 編輯</a>
                             <button class="btn btn-danger btn-lg" type="submit"><i class="fa fa-trash"></i> 刪除</button>
-                        </form>
+                        {!! Form::close() !!}
                     </div>
+
                     <div class="panel-body">
                         {{ $post->content }}
                     </div>

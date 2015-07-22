@@ -18,6 +18,7 @@ Route::get('/', ['as' => 'index', 'uses' => 'PostController@index']);
 
 Route::get('posts', ['as' => 'posts.index', 'uses' => 'PostController@index']);
 Route::get('posts/{id}', ['as' => 'posts.show', 'uses' => 'PostController@show']);
+Route::delete('posts/{id}', ['as' => 'posts.delete', 'uses' => 'PostController@destroy']);
 Route::get('posts/hot', ['as' => 'posts.hot', 'uses' => 'PostController@hot']);
 Route::get('posts/my', ['as' => 'posts.my', 'uses' => 'PostController@my']);
 Route::post('posts/{id}/comments', ['as' => 'comments.store', 'uses' => 'PostController@storeComment']);

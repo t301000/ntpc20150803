@@ -126,6 +126,16 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $comment_ids = $post->comments()->lists('id')->toArray();
+        Comment::destroy($comment_ids);
+        $post->delete();
+
+        return redirect()->route('posts.index')
+                         ->with('msg', [
+                             'status' => 'success',
+                             'content' => '文章及回應已刪除。'
+                         ]);
+
     }
 }

@@ -14,6 +14,8 @@
 
             <div class="well well-lg">
 
+                @include('partials.notification')
+                        
                 @foreach($posts as $post)
                     <!-- 一篇文章 -->
                     <div class="panel panel-default my-article">
