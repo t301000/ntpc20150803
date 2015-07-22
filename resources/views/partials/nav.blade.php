@@ -11,7 +11,7 @@
         </div>
         <div class="navbar-collapse collapse navbar-inverse-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{{ route('posts.index') }}"><i class="fa fa-list-ul my-icon"></i> 文章總覽</a></li>
+                <li><a href="{{ route('posts.index') }}"><i class="fa fa-list-ul my-icon"></i> 文章總覽</a></li>
                 <li><a href="{{ route('posts.hot') }}"><i class="fa fa-fire my-icon"></i> 熱門文章</a></li>
                 <li><a href="{{ route('about') }}"><i class="fa fa-info-circle my-icon"></i> 關於本站</a></li>
             </ul>
