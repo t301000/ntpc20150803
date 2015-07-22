@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('posts.index', ['page_title' => '文章總覽']);
 });

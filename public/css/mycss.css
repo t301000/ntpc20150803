@@ -1,0 +1,53 @@
+body {
+    padding-top: 60px;
+}
+
+a,a:hover,a:focus {
+    text-decoration: none;
+}
+
+.my-icon {
+    width: 20px;
+}
+
+.my-article .my-tags {
+    clear: both;
+    margin-top: 10px;
+}
+
+.my-tags .tag {
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: #0091ea;
+    color: #fff;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+.my-footer {
+    margin-top: 20px;
+    padding: 15px 0;
+}
+
+.my-form {
+    margin: 15px 15px 0;
+    padding: 15px 15px 0;
+}
+
+.my-sidebar-top-btn-wrapper {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.about-jumbotron {
+    margin-top: 40px;
+}
+
+.about-contact {
+    list-style: none;
+}
+
+.about-contact > li {
+    font-size: 1.5em;
+    line-height: 2em;
+}
