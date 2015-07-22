@@ -26,5 +26,16 @@ $factory->define(App\Post::class, function ($faker) {
         'title' => $faker->sentence,
         'content' => $faker->paragraph(rand(3, 6)),
         'page_views' => rand(0, 200),
+        'created_at' => $faker->dateTimeBetween('-3 months', 'now')
+    ];
+});
+
+$factory->define(App\Comment::class, function ($faker) {
+    return [
+        'post_id' => rand(1, 30),
+        'name' => $faker->name,
+        'email' => $faker->email,
+        'content' => $faker->paragraph(rand(3, 6)),
+        'created_at' => $faker->dateTimeBetween('-3 months', 'now')
     ];
 });
