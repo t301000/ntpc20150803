@@ -13,7 +13,7 @@
         <div class="col-md-9">
 
             <div class="well well-lg">
-
+                @include('partials.notification')
                 <!-- 文章 -->
                 <div class="panel panel-default">
                     <div class="text-right" style="padding-right: 15px;">
@@ -37,21 +37,22 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="my-form">
-                            <form class="form-horizontal" action="" method="POST">
+                            {{--<form class="form-horizontal" action="" method="POST">--}}
+                            {!! Form::open(['route' => ['comments.store', $post->id], 'method' => 'POST']) !!}
                                 <div class="form-group">
-                                    <input class="form-control floating-label input-lg" type="text" name="name" value="zzzz" placeholder="姓名" required>
+                                    <input class="form-control floating-label input-lg" type="text" name="name" value="{{ old('name') }}" placeholder="姓名" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control floating-label input-lg" type="email" name="email" placeholder="電子郵件" required>
+                                    <input class="form-control floating-label input-lg" type="email" name="email" value="{{ old('email') }}" placeholder="電子郵件" required>
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control floating-label input-lg" name="content" rows="5" placeholder="回應內容" required></textarea>
+                                    <textarea class="form-control floating-label input-lg" name="content" rows="5" placeholder="回應內容" required>{{ old('content') }}</textarea>
                                 </div>
                                 <div class="form-group text-right">
                                     <button class="btn btn-primary btn-lg" type="submit"><i class="fa fa-plus"></i> 發表回應</button>
                                 </div>
 
-                            </form>
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 </div>
@@ -68,7 +69,7 @@
                             {{ $comment->content }}
                         </div>
                     </div>
-                    <!-- 一篇評論 結束 -->    
+                    <!-- 一篇評論 結束 -->
                 @endforeach
                 <!-- 顯示評論 結束 -->
 

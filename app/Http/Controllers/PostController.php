@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
+use App\Http\Requests\CommentFormRequest;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -59,6 +61,21 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function storeComment($id, CommentFormRequest $request)
+    {
+        $post = Post::findOrFail($id);
+
+        $comment = Comment::create($request->all());
+
+        $comment = $post->comments()->save($comment);
+
+        return redirect()->route('posts.show', [$id])
+                        ->with('msg', [
+                            'status' => 'success',
+                            'content' => '您的回應已發表完成。'
+                        ]);
     }
 
     /**
