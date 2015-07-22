@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/material.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ripples.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/mycss.css') }}">
-    <title>我的部落格</title>
+    <title>{{ config('siteconfig.site_title') }}</title>
 </head>
 
 <body>
