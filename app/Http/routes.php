@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as' => 'index', function () {
     return view('posts.index', ['page_title' => '文章總覽']);
-});
+}]);
+
+Route::get('about', ['as' => 'about', 'uses' => 'AboutController@index']);
