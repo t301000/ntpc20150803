@@ -31,4 +31,7 @@ Route::get('auth/login', ['as' => 'login.index', 'uses' => 'Auth\AuthController@
 Route::post('auth/login', ['as' => 'login.process', 'uses' => 'Auth\AuthController@postLogin']);
 Route::get('auth/logout', ['as' => 'logout.process', 'uses' => 'Auth\AuthController@getLogout']);
 
+Route::get('auth/openid' , ['as' => 'openid.process' , 'uses' => 'Auth\OpenIdController@process']);
+Route::post('auth/openid', ['as' => 'openid.redirect', 'uses' => 'Auth\OpenIdController@redirect']);
+
 Route::get('about', ['as' => 'about', 'uses' => 'AboutController@index']);

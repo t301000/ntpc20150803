@@ -37,11 +37,11 @@
 
                     <!-- 右欄 social login -->
                     <div class="col-md-5">
-                        <form action="">
+                        {!! Form::open(['route' => 'openid.redirect', 'method' => 'POST']) !!}
                             <button class="btn btn-material-orange btn-block" type="submit" style="color: rgba(255, 255, 255, 0.843137);">
                                 <i class="fa fa-openid fa-2x"></i> NTPC OpenID
                             </button>
-                        </form>
+                        {!! Form::close() !!}
 
                         <div class="btn btn-material-blue btn-block">
                             <i class="fa fa-facebook-square fa-2x"></i> facebook
