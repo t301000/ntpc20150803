@@ -17,7 +17,11 @@ Route::pattern('id', '[0-9]+');
 Route::get('/', ['as' => 'index', 'uses' => 'PostController@index']);
 
 Route::get('posts', ['as' => 'posts.index', 'uses' => 'PostController@index']);
+Route::get('posts/create', ['as' => 'posts.create', 'uses' => 'PostController@create']);
+Route::post('posts', ['as' => 'posts.store', 'uses' => 'PostController@store']);
 Route::get('posts/{id}', ['as' => 'posts.show', 'uses' => 'PostController@show']);
+Route::get('posts/{id}/edit', ['as' => 'posts.edit', 'uses' => 'PostController@edit']);
+Route::put('posts/{id}', ['as' => 'posts.update', 'uses' => 'PostController@update']);
 Route::delete('posts/{id}', ['as' => 'posts.delete', 'uses' => 'PostController@destroy']);
 Route::get('posts/hot', ['as' => 'posts.hot', 'uses' => 'PostController@hot']);
 Route::get('posts/my', ['as' => 'posts.my', 'uses' => 'PostController@my']);

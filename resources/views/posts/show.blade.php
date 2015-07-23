@@ -15,14 +15,14 @@
             <div class="well well-lg">
 
                 @include('partials.notification')
-                        
+
                 <!-- 文章 -->
                 <div class="panel panel-default">
                     {{-- 編輯/刪除按鈕 --}}
                     <div class="text-right" style="padding-right: 15px;">
                         {{--<form action="" method="POST">--}}
                         {!! Form::open(['route' => ['posts.delete', $post->id], 'method' => 'DELETE']) !!}
-                            <a class="btn btn-material-blue btn-lg" href="editpost.html"><i class="fa fa-edit"></i> 編輯</a>
+                            <a class="btn btn-material-blue btn-lg" href="{{ route('posts.edit', [$post->id]) }}"><i class="fa fa-edit"></i> 編輯</a>
                             <button class="btn btn-danger btn-lg" type="submit"><i class="fa fa-trash"></i> 刪除</button>
                         {!! Form::close() !!}
                     </div>
@@ -43,7 +43,7 @@
                     <div class="panel-body">
                         <div class="my-form">
                             {{--<form class="form-horizontal" action="" method="POST">--}}
-                            {!! Form::open(['route' => ['comments.store', $post->id], 'method' => 'POST']) !!}
+                            {!! Form::open(['route' => ['comments.store', $post->id], 'method' => 'POST', 'class' => 'form-horizontal']) !!}
                                 <div class="form-group">
                                     <input class="form-control floating-label input-lg" type="text" name="name" value="{{ old('name') }}" placeholder="姓名" required>
                                 </div>

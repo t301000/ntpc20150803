@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Http\Requests\CommentFormRequest;
+use App\Http\Requests\PostFormRequest;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -49,18 +50,26 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $page_title = '新增文章';
+        return view('posts.create', compact('page_title'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param PostFormRequest|Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(PostFormRequest $request)
     {
-        //
+        $post = new Post;
+        $post->user_id = 1;
+        $post->title = $request->get('title');
+        $post->content = $request->get('content');
+        $post->save();
+
+        return redirect()->route('posts.show', [$post->id])
+                        ->with('msg', ['status' => 'success', 'content' => '文章新增完成']);
     }
 
     public function storeComment($id, CommentFormRequest $request)
@@ -103,7 +112,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $page_title = '編輯文章';
+
+        return view('posts.edit', compact('post','page_title'));
     }
 
     /**
@@ -113,9 +125,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(PostFormRequest $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->update($request->all());
+
+        return redirect()->route('posts.show', [$id])
+                         ->with('msg', ['status' => 'success', 'content' => '文章更新完成']);
     }
 
     /**

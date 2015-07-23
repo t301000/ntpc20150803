@@ -7,7 +7,7 @@
 
     <div class="col-md-3">
         <div class="pull-right my-sidebar-top-btn-wrapper">
-            <a href="createpost.html" class="btn btn-material-green btn-lg btn-block">
+            <a href="{{ route('posts.create') }}" class="btn btn-material-green btn-lg btn-block">
                 <i class="fa fa-plus"></i> 新增文章
             </a>
         </div>
