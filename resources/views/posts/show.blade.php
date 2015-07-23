@@ -19,6 +19,7 @@
                 <!-- 文章 -->
                 <div class="panel panel-default">
                     {{-- 編輯/刪除按鈕 --}}
+                    @if(Auth::user() && Auth::user()->id == $post->user_id)
                     <div class="text-right" style="padding-right: 15px;">
                         {{--<form action="" method="POST">--}}
                         {!! Form::open(['route' => ['posts.delete', $post->id], 'method' => 'DELETE']) !!}
@@ -26,6 +27,7 @@
                             <button class="btn btn-danger btn-lg" type="submit"><i class="fa fa-trash"></i> 刪除</button>
                         {!! Form::close() !!}
                     </div>
+                    @endif
 
                     <div class="panel-body">
                         {{ $post->content }}

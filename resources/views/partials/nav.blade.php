@@ -17,19 +17,22 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ route('auth.login') }}"><i class="fa fa-sign-in my-icon"></i> 登入</a></li>
-                <li class="dropdown">
-                    <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-user my-icon"></i> Admin <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="admin.html"><i class="fa fa-cogs my-icon"></i> 管理區</a></li>
-                        <li><a href="profile.html"><i class="fa fa-user my-icon"></i> 帳號資訊</a></li>
-                        <li><a href="{{ route('posts.my') }}"><i class="fa fa-list-ul my-icon"></i> 我的文章</a></li>
-                        <li class="divider"></li>
-                        <li><a href="{{ route('auth.logout') }}"><i class="fa fa-sign-out my-icon"></i> 登出</a></li>
-                    </ul>
-                </li>
+                @if(Auth::guest())
+                    <li><a href="{{ route('login.index') }}"><i class="fa fa-sign-in my-icon"></i> 登入</a></li>
+                @elseif(Auth::check())
+                    <li class="dropdown">
+                        <a href="#" data-target="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user my-icon"></i> {{ Auth::user()->name }} <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="admin.html"><i class="fa fa-cogs my-icon"></i> 管理區</a></li>
+                            <li><a href="profile.html"><i class="fa fa-user my-icon"></i> 帳號資訊</a></li>
+                            <li><a href="{{ route('posts.my') }}"><i class="fa fa-list-ul my-icon"></i> 我的文章</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{ route('logout.process') }}"><i class="fa fa-sign-out my-icon"></i> 登出</a></li>
+                        </ul>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

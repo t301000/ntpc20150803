@@ -14,6 +14,15 @@ use App\Http\Controllers\Controller;
 class PostController extends Controller
 {
     /**
+     * PostController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'hot', 'storeComment', 'show']]);
+    }
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return Response
@@ -121,8 +130,8 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  int  $id
+     * @param PostFormRequest|Request $request
+     * @param  int $id
      * @return Response
      */
     public function update(PostFormRequest $request, $id)
