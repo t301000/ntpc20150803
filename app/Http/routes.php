@@ -27,6 +27,9 @@ Route::get('posts/hot', ['as' => 'posts.hot', 'uses' => 'PostController@hot']);
 Route::get('posts/my', ['as' => 'posts.my', 'uses' => 'PostController@my']);
 Route::post('posts/{id}/comments', ['as' => 'comments.store', 'uses' => 'PostController@storeComment']);
 
+Route::get('auth/register' , ['as' => 'register.index'  , 'uses' => 'Auth\AuthController@getRegister']);
+Route::post('auth/register', ['as' => 'register.process', 'uses' => 'Auth\AuthController@postRegister']);
+
 Route::get('auth/login', ['as' => 'login.index', 'uses' => 'Auth\AuthController@getLogin']);
 Route::post('auth/login', ['as' => 'login.process', 'uses' => 'Auth\AuthController@postLogin']);
 Route::get('auth/logout', ['as' => 'logout.process', 'uses' => 'Auth\AuthController@getLogout']);

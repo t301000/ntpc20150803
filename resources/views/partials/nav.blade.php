@@ -18,6 +18,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 @if(Auth::guest())
+                    <li><a href="{{ route('register.index') }}"><i class="fa fa-plus my-icon"></i> 註冊</a></li>
                     <li><a href="{{ route('login.index') }}"><i class="fa fa-sign-in my-icon"></i> 登入</a></li>
                 @elseif(Auth::check())
                     <li class="dropdown">

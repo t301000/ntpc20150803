@@ -45,8 +45,8 @@ class PostController extends Controller
 
     public function my()
     {
-        //$user = \Auth::user();
-        $posts = Post::where('user_id', 1)->orderBy('created_at', 'desc')->paginate(config('siteconfig.per_page'));
+        $user = \Auth::user();
+        $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate(config('siteconfig.per_page'));
 
         $page_title = '我的文章';
         return view('posts.index', compact('posts', 'page_title'));
