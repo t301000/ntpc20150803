@@ -34,6 +34,12 @@ Route::get('auth/login', ['as' => 'login.index', 'uses' => 'Auth\AuthController@
 Route::post('auth/login', ['as' => 'login.process', 'uses' => 'Auth\AuthController@postLogin']);
 Route::get('auth/logout', ['as' => 'logout.process', 'uses' => 'Auth\AuthController@getLogout']);
 
+Route::get('password/email' , ['as' => 'forgetpassword.index'  , 'uses' => 'Auth\PasswordController@getEmail']);
+Route::post('password/email', ['as' => 'forgetpassword.process', 'uses' => 'Auth\PasswordController@postEmail']);
+
+Route::get('password/reset/{token}', ['as' => 'resetpassword.index'  , 'uses' => 'Auth\PasswordController@getReset']);
+Route::post('password/reset', ['as' => 'resetpassword.process', 'uses' => 'Auth\PasswordController@postReset']);
+
 Route::get('auth/openid' , ['as' => 'openid.process' , 'uses' => 'Auth\OpenIdController@process']);
 Route::post('auth/openid', ['as' => 'openid.redirect', 'uses' => 'Auth\OpenIdController@redirect']);
 

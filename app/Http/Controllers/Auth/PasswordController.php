@@ -20,6 +20,11 @@ class PasswordController extends Controller
 
     use ResetsPasswords;
 
+    protected $redirectTo = '/';
+    //protected $redirectPath = 'posts/my';
+
+    protected $subject = '重設密碼';
+
     /**
      * Create a new password controller instance.
      *

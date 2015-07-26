@@ -12,7 +12,7 @@
                 @include('partials.notification')
 
                 <div class="row">
-                    <!-- 左欄 local login -->
+                    <!-- 左欄 -->
                     <div class="col-md-7">
                         <div class="my-form">
                             {!! Form::open(['route' => 'register.process', 'method' => 'POST', 'class' => 'form-horizontal']) !!}
@@ -34,7 +34,7 @@
                             {!! Form::close() !!}
                         </div>
                     </div>
-                    <!-- 左欄 local login end -->
+                    <!-- 左欄 end -->
 
                     <!-- 右欄 social login -->
                     <div class="col-md-5">
