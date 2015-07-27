@@ -18,4 +18,14 @@ class Post extends Model
     {
         return $this->hasMany('\App\Comment')->orderBy('created_at', 'asc');
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany('\App\Tag');
+    }
+
+    public function is_owner()
+    {
+        return (\Auth::id() == $this->user_id);
+    }
 }

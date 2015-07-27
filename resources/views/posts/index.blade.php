@@ -38,9 +38,10 @@
                             <div class="pull-right">&nbsp;&nbsp;&nbsp;&nbsp;發表於： {{ $post->created_at }}</div>
                             <div class="pull-right">觀看次數： {{ $post->page_views }} 次</div>
                             <div class="my-tags">
-                                Tags:<a href="tag-posts.html?tag=1"><span class="tag">標籤1</span></a>
-                                <a href="tag-posts.html?tag=2"><span class="tag">標籤tag2</span></a>
-                                <a href="tag-posts.html?tag=3"><span class="tag">tag3</span></a>
+                                Tags:
+                                @foreach($post->tags as $tag)
+                                    <a href="{{ route('posts.tag', [$tag->id]) }}"><span class="tag">{{ $tag->title }}</span></a>
+                                @endforeach
                             </div>
                         </div>
                     </div>

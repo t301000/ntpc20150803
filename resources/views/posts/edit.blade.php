@@ -19,11 +19,24 @@
                 <div class="my-form">
                     {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT', 'class' => 'form-horizontal']) !!}
                         <div class="form-group">
-                            <input class="form-control floating-label input-lg" type="text" name="title" placeholder="文章標題" value="{{ $post->title }}" required autofocus>
+                            <input class="form-control floating-label input-lg" type="text" name="title" placeholder="文章標題" value="{{ old('title') ? : $post->title }}" required autofocus>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control floating-label input-lg" name="content" rows="20" placeholder="文章內容" required>{{ $post->content }}</textarea>
+                            <textarea class="form-control floating-label input-lg" name="content" rows="20" placeholder="文章內容" required>{{ old('content') ? : $post->content }}</textarea>
                         </div>
+
+                        @foreach($tags as $tag)
+                            <div class="checkbox my-tag">
+                                <label>
+                                    <input type="checkbox" name="tag[]" value="{{ $tag->id }}"
+                                           @if(old('tag') && in_array($tag->id, old('tag')))
+                                                checked
+                                           @elseif($post->tags && in_array($tag->id, array_pluck($post->tags->toArray(), 'id')))
+                                                checked
+                                           @endif > {{ $tag->title }}
+                                </label>
+                            </div>
+                        @endforeach
 
                         <div class="form-group text-right">
                             <button class="btn btn-primary btn-lg" type="submit"><i class="fa fa-refresh"></i> 更新文章</button>

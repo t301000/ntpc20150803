@@ -17,7 +17,7 @@
                 @include('partials.notification')
 
                 <!-- 文章 -->
-                <div class="panel panel-default">
+                <div class="panel panel-default my-article">
                     {{-- 編輯/刪除按鈕 --}}
                     @if(Auth::user() && Auth::user()->id == $post->user_id)
                     <div class="text-right" style="padding-right: 15px;">
@@ -36,6 +36,12 @@
                         作者： <a href="oneuserposts.html">{{ $post->user->name }}</a>
                         <div class="pull-right">&nbsp;&nbsp;&nbsp;&nbsp;發表於： {{ $post->created_at }}</div>
                         <div class="pull-right">觀看次數： {{ $post->page_views }} 次</div>
+                        <div class="my-tags">
+                            Tags:
+                            @foreach($post->tags as $tag)
+                                <a href="{{ route('posts.tag', [$tag->id]) }}"><span class="tag">{{ $tag->title }}</span></a>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
                 <!-- 文章 結束 -->

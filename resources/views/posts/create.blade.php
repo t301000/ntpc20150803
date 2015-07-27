@@ -25,6 +25,17 @@
                             <textarea class="form-control floating-label input-lg" name="content" rows="20" placeholder="文章內容" required>{{ old('content') }}</textarea>
                         </div>
 
+                        @foreach($tags as $tag)
+                            <div class="checkbox my-tag">
+                                <label>
+                                    <input type="checkbox" name="tag[]" value="{{ $tag->id }}"
+                                        @if(old('tag') && in_array($tag->id, old('tag')))
+                                            checked
+                                        @endif > {{ $tag->title }}
+                                </label>
+                            </div>
+                        @endforeach
+
                         <div class="form-group text-right">
                             <button class="btn btn-primary btn-lg" type="submit"><i class="fa fa-plus"></i> 發表文章</button>
                         </div>

@@ -24,6 +24,11 @@ a,a:hover,a:focus {
     padding: 5px;
 }
 
+.my-tag {
+    display: inline-block;
+    margin-right: 10px;
+}
+
 .my-footer {
     margin-top: 20px;
     padding: 15px 0;

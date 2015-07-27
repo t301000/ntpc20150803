@@ -26,6 +26,7 @@ Route::delete('posts/{id}', ['as' => 'posts.delete', 'uses' => 'PostController@d
 Route::get('posts/hot', ['as' => 'posts.hot', 'uses' => 'PostController@hot']);
 Route::get('posts/my', ['as' => 'posts.my', 'uses' => 'PostController@my']);
 Route::post('posts/{id}/comments', ['as' => 'comments.store', 'uses' => 'PostController@storeComment']);
+Route::get('posts/tag/{id}', ['as' => 'posts.tag', 'uses' => 'PostController@tag']);
 
 Route::get('auth/register' , ['as' => 'register.index'  , 'uses' => 'Auth\AuthController@getRegister']);
 Route::post('auth/register', ['as' => 'register.process', 'uses' => 'Auth\AuthController@postRegister']);

@@ -39,3 +39,9 @@ $factory->define(App\Comment::class, function ($faker) {
         'created_at' => $faker->dateTimeBetween('-3 months', 'now')
     ];
 });
+
+$factory->define(App\Tag::class, function ($faker) {
+    return [
+        'title' => $faker->word,
+    ];
+});
