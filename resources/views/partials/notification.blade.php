@@ -11,3 +11,10 @@
         {{ session('msg')['content'] }}
     </div>
 @endif
+
+@if(session('status'))
+    <div class="alert alert-dismissable alert-info animated fadeIn">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        {{ session('status') }}
+    </div>
+@endif
