@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2179741414c149abd937cbe5d09d065e",
+    "hash": "ea2a9742a737c0b29087dfcb422c7e42",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -59,6 +59,47 @@
                 "webprofiler"
             ],
             "time": "2015-07-09 14:51:59"
+        },
+        {
+            "name": "ckeditor/ckeditor",
+            "version": "4.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ckeditor/ckeditor-releases.git",
+                "reference": "d73e63a92b2215ab61ad7599d5c342bf541508c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ckeditor/ckeditor-releases/zipball/d73e63a92b2215ab61ad7599d5c342bf541508c7",
+                "reference": "d73e63a92b2215ab61ad7599d5c342bf541508c7",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+",
+                "LGPL-2.1+",
+                "MPL-1.1+"
+            ],
+            "authors": [
+                {
+                    "name": "CKSource",
+                    "homepage": "http://cksource.com"
+                }
+            ],
+            "description": "JavaScript WYSIWYG web text editor.",
+            "homepage": "http://ckeditor.com",
+            "keywords": [
+                "CKEditor",
+                "editor",
+                "fckeditor",
+                "html",
+                "javascript",
+                "richtext",
+                "text",
+                "wysiwyg"
+            ],
+            "time": "2015-07-02 12:38:46"
         },
         {
             "name": "classpreloader/classpreloader",

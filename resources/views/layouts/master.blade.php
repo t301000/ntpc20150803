@@ -33,6 +33,7 @@
 <script src="{{ asset('js/jquery.bootstrap-autohidingnavbar.min.js') }}"></script>
 <script src="{{ asset('js/ripples.min.js') }}"></script>
 <script src="{{ asset('js/material.min.js') }}"></script>
+
 <script>
     $(document).ready(function(){
         $.material.init();
@@ -40,6 +41,8 @@
 
     $('nav').autoHidingNavbar();
 </script>
+
+@yield('script')
 
 </body>
 </html>

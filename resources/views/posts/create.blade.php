@@ -22,7 +22,7 @@
                             <input class="form-control floating-label input-lg" type="text" name="title" placeholder="文章標題" value="{{ old('title') }}" required autofocus>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control floating-label input-lg" name="content" rows="20" placeholder="文章內容" required>{{ old('content') }}</textarea>
+                            <textarea class="form-control" id="ckeditor" name="content" rows="20" required>{{ old('content') }}</textarea>
                         </div>
 
                         @foreach($tags as $tag)
@@ -54,3 +54,7 @@
     <!-- 主要內容區與側邊欄 -->
 @endsection
 {{-- main-content end --}}
+
+@section('script')
+    @include('posts.partials.ckeditor')
+@endsection

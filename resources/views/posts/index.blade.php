@@ -23,7 +23,7 @@
                             <h4><a href="{{ route('posts.show', [$post->id]) }}">{{ $post->title }}</a></h4>
                         </div>
                         <div class="panel-body">
-                            {{ str_limit($post->content, 200) }}
+                            {!! str_limit($post->content, 200) !!}
 
                             @if(mb_strlen($post->content)>200)
                                 <div class="text-right">

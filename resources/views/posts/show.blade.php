@@ -30,7 +30,7 @@
                     @endif
 
                     <div class="panel-body">
-                        {{ $post->content }}
+                        {!! $post->content !!}
                     </div>
                     <div class="panel-footer">
                         作者： <a href="oneuserposts.html">{{ $post->user->name }}</a>
